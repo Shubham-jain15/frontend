@@ -10,6 +10,8 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "ignoreDeprecations": "5.0",
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
@@ -17,6 +19,9 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES2022",
+    "typeRoots": [
+      "src/alertyfytype.d.ts"
+    ],
     "module": "ES2022",
     "useDefineForClassFields": false,
     "lib": [
@@ -28,6 +33,7 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "suppressImplicitAnyIndexErrors": true
   }
 }

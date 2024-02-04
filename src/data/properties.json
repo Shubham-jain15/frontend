@@ -1,0 +1,50 @@
+[
+    {
+      "Id":1,
+      "Name":"Shalom",
+      "SellRent":1,
+      "Type":"House",
+      "Price":12000,
+      "Source":"house4.jpg"
+    },
+    {
+      "Id":2,
+      "Name":"Navkar Villa",
+      "SellRent":2,
+      "Type":"Villa",
+      "Price":14500,
+      "Source":"house5.avif"
+    },
+    {
+      "Id":3,
+      "Name":"Mehta Bhavan",
+      "SellRent":1,
+      "Type":"Flat",
+      "Price":19500,
+      "Source":"house3.avif"
+    },
+    {
+      "Id":4,
+      "Name":"Mehta Bhavan",
+      "SellRent":2,
+      "Type":"Flat",
+      "Price":16500,
+      "Source":"house6.avif"
+    },
+    {
+      "Id":5,
+      "Name":"Navkar Villa",
+      "Type":"Villa",
+      "SellRent":1,
+      "Price":13500,
+      "Source":"house2.webp"
+    },
+    {
+      "Id":6,
+      "Name":"Shalom",
+      "Type":"House",
+      "SellRent":2,
+      "Price":11000,
+      "Source":"house.jpg"
+    }
+]

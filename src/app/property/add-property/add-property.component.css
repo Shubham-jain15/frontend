@@ -1,0 +1,19 @@
+.full-width-btn {
+    display: block;
+    width: 100%;   
+    text-align: center;
+    text-decoration: none;
+    background-color: #007bff; /* Adjust the background color as needed */
+    color: #fff; /* Adjust the text color as needed */
+    border: 1px solid #007bff; /* Adjust the border color as needed */
+    border-radius: 5px; /* Adjust the border radius as needed */
+    cursor: pointer;
+  }
+
+.photo-control {
+    min-height: 300px;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px dashed blue;
+    margin: 5px;
+}
