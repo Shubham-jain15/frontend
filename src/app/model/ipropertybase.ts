@@ -8,7 +8,7 @@ export interface IPropertyBase{
     photo?: string;
     bhk: number;
     builtArea: number;
-    city: string;    
-    estPossessionOn:string;
+    city: string;        
     readyToMove: boolean;
+    estPossessionOn?: string;
 }

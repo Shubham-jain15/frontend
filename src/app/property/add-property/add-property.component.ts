@@ -3,6 +3,7 @@ import { Form, FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@
 import { Router } from '@angular/router'
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { IPropertyBase } from 'src/app/model/ipropertybase';
+import { Property } from 'src/app/model/property';
 
 @Component({
   selector: 'app-add-property',
@@ -15,6 +16,7 @@ export class AddPropertyComponent implements OnInit {
 
   addPropertyForm: FormGroup;
   nextClicked: boolean;
+  property = new Property();
 
   propertyTypes: Array<string> = ['House','Apartment','Duplex'];
   furnishTypes: Array<string> = ['Semi','Fully','Unfurnished'];
@@ -31,8 +33,7 @@ export class AddPropertyComponent implements OnInit {
     bhk: 1,
     builtArea: 1,
     city: '',   
-    readyToMove: false,
-    estPossessionOn: ''
+    readyToMove: false,   
   };
 
   constructor(private fb:FormBuilder , private route: Router) { 
@@ -48,9 +49,13 @@ export class AddPropertyComponent implements OnInit {
   CreateAddPropertyForm(){
     this.addPropertyForm = this.fb.group({
       BasicInfo: this.fb.group({
-        SellRent: ['1',Validators.required],
-        PType: [null,Validators.required],
-        Name: [null,Validators.required],
+        SellRent: ['1' , Validators.required],
+        BHK: [null, Validators.required],
+        PType: [null, Validators.required],
+        FType: [null, Validators.required],
+        Name: [null, Validators.required],
+        City: [null, Validators.required]
+
       }),  
       PriceInfo: this.fb.group({
         Price: [null,Validators.required],
@@ -187,26 +192,64 @@ get Description() {
 
   onSubmit()
   {
-    this.nextClicked = true;
+    this.nextClicked = true; 
+    if(this.allTabsValid()){
+      console.log('Form submitted');
+      console.log('SellRent=' + this.addPropertyForm.value.BasicInfo.SellRent);
+      console.log(this.addPropertyForm)
+    }  
+    else{
+       console.log('Please fill all entries');
+    }    
+  }
+
+  mapProperty(): void {
+    this.property.sellRent = +this.SellRent.value;
+    this.property.bhk = this.BHK.value;
+    this.property.propertyTypeId = this.PType.value;
+    this.property.name = this.Name.value;
+    this.property.CityId = this.City.value;
+    this.property.furnishingTypeId = this.FType.value;
+    this.property.price = this.Price.value;
+    this.property.security = this.Security.value;
+    this.property.maintenance = this.Maintenance.value;
+    this.property.builtArea = this.BuiltArea.value;
+    this.property.carpetArea = this.CarpetArea.value;
+    this.property.floorNo = this.FloorNo.value;
+    this.property.totalFloors = this.TotalFloor.value;
+    this.property.address = this.Address.value;
+    this.property.address2 = this.LandMark.value;
+    this.property.readyToMove = this.RTM.value;
+    this.property.gated = this.Gated.value;
+    this.property.mainEntrance = this.MainEntrance.value;
+    this.property.estPossessionOn = this.PossessionOn.value;
+    this.property.description = this.Description.value;
+    this.property.postedOn = new Date();
+}
+
+  allTabsValid():boolean{
     if(this.BasicInfo.invalid)
     {
       this.formTabs.tabs[0].active = true;
+      return false;
     } 
     if(this.PriceInfo.invalid)
     {
       this.formTabs.tabs[1].active = true;
-    } 
-    if(this.OtherInfo.invalid)
-    {
-      this.formTabs.tabs[3].active = true;
+      return false;
     } 
     if(this.AddressInfo.invalid)
     {
       this.formTabs.tabs[2].active = true;
+      return false;
     } 
-    console.log('Form submitted');
-    console.log('SellRent=' + this.addPropertyForm.value.BasicInfo.SellRent);
-    console.log(this.addPropertyForm)
+    if(this.OtherInfo.invalid)
+    {
+      this.formTabs.tabs[3].active = true;
+      return false;
+    } 
+   
+    return true;
   }
 
   selectTab(tabId : number, IsCurrentTabValid: boolean)
