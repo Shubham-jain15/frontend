@@ -3,7 +3,7 @@ import { Photo } from './photo';
 
 export class Property implements IPropertyBase {
     id: number = 0;
-    sellRent: number = 0;
+    sellRent: number =1;
     name: string = '';
     propertyTypeId: number = 0;
     propertyType: string = '';

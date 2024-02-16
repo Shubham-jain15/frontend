@@ -4,6 +4,8 @@ import { Router } from '@angular/router'
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { IPropertyBase } from 'src/app/model/ipropertybase';
 import { Property } from 'src/app/model/property';
+import { AlertifyService } from 'src/app/services/alertify.service';
+import { HousingService } from 'src/app/services/housing.service';
 
 @Component({
   selector: 'app-add-property',
@@ -36,7 +38,11 @@ export class AddPropertyComponent implements OnInit {
     readyToMove: false,   
   };
 
-  constructor(private fb:FormBuilder , private route: Router) { 
+  constructor(
+    private housingService: HousingService,
+    private fb:FormBuilder , 
+    private route: Router,
+    private alertify: AlertifyService) { 
     this.formTabs = {} as TabsetComponent;
     this.addPropertyForm = {} as FormGroup;
     this.nextClicked = false as boolean;
@@ -49,7 +55,7 @@ export class AddPropertyComponent implements OnInit {
   CreateAddPropertyForm(){
     this.addPropertyForm = this.fb.group({
       BasicInfo: this.fb.group({
-        SellRent: ['1' , Validators.required],
+        SellRent: [1 , Validators.required],
         BHK: [null, Validators.required],
         PType: [null, Validators.required],
         FType: [null, Validators.required],
@@ -194,22 +200,33 @@ get Description() {
   {
     this.nextClicked = true; 
     if(this.allTabsValid()){
-      console.log('Form submitted');
+      this.mapProperty();
+      this.housingService.addProperty(this.property);
+      this.alertify.success('Form submitted');
       console.log('SellRent=' + this.addPropertyForm.value.BasicInfo.SellRent);
       console.log(this.addPropertyForm)
+
+      if(this.SellRent.value==2)
+      {
+        this.route.navigate(['/rent-property']);
+      }
+      else{
+        this.route.navigate(['/']);
+      }
     }  
     else{
-       console.log('Please fill all entries');
+       this.alertify.error('Please fill all entries');
     }    
   }
 
   mapProperty(): void {
+    this.property.id = this.housingService.newPropID();
     this.property.sellRent = +this.SellRent.value;
     this.property.bhk = this.BHK.value;
-    this.property.propertyTypeId = this.PType.value;
+    this.property.propertyType = this.PType.value;
     this.property.name = this.Name.value;
-    this.property.CityId = this.City.value;
-    this.property.furnishingTypeId = this.FType.value;
+    this.property.city = this.City.value;
+    this.property.furnishingType = this.FType.value;
     this.property.price = this.Price.value;
     this.property.security = this.Security.value;
     this.property.maintenance = this.Maintenance.value;
