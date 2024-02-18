@@ -1,8 +1,8 @@
 [
   {
-    "Id":1,
-    "SellRent":2,
-    "Name":"Birla House",
+    "id":1,
+    "sellRent":2,
+    "name":"Birla House",
     "PType":"House",
     "bhk":2,
     "FType":"Fully",
@@ -55,9 +55,9 @@
     "PostedOn":"01-Jan-2019"
   },
   {
-    "Id":3,
-    "SellRent":1,
-    "Name":"Gun Hill",
+    "id":3,
+    "sellRent":1,
+    "name":"Gun Hill",
     "PType":"House",
     "bhk":3,
     "FType":"Fully",
@@ -83,9 +83,9 @@
   },
 
   {
-    "Id":4,
-    "SellRent":1,
-    "Name":"Macro Home",
+    "id":4,
+    "sellRent":1,
+    "name":"Macro Home",
     "PType":"Duplex",
     "bhk":4,
     "FType":"Semi",
@@ -110,9 +110,9 @@
     "PostedOn":"01-Jan-2019"
   },
   {
-    "Id":5,
-    "SellRent":1,
-    "Name":"Saint Church Villa",
+    "id":5,
+    "sellRent":1,
+    "name":"Saint Church Villa",
     "PType":"House",
     "bhk":2,
     "FType":"Semi",
@@ -138,9 +138,9 @@
   },
 
   {
-    "Id":6,
-    "SellRent":1,
-    "Name":"",
+    "id":6,
+    "sellRent":1,
+    "name":"",
     "PType":"Duplex",
     "bhk":1,
     "FType":"Fully",

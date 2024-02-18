@@ -1,19 +1,57 @@
 <div class="row shadow">
-  <div class="col-sm-4">
+  <div class="col-sm-4 p-0">
     <div class="card">
         <div class="card-img-wrapper">
           <img class="card-img-top" src="assets/images/house2.webp">
         </div>
         <div class="card-body">
-    
+            <h1 class="card-title">
+              {{property.name}}
+            </h1>
+            <div>
+              <strong>{{property.bhk}} BHK Apartment at ${{property.price}}</strong>
+            </div>
+            <div>
+              <strong>{{property.city}}</strong>
+            </div> <hr>
+            <div>
+              <strong>Carpet Area:</strong>
+              1100 Sqft
+            </div>
+            <div>
+              <strong>Build Area:</strong>
+              1200 Sqft
+            </div>
+            <div>
+              <strong>Furnishing Type:</strong>
+              Furnished
+            </div>
         </div>
         <div class="card-footer">
-          <button class="btn btn-primary">Like</button>
-          <button class="btn btn-success">Message</button>
+          <div class="btn-group d-flex">
+            <button class="btn btn-primary">Like</button>
+            <button class="btn btn-success">Message</button>
+          </div>         
         </div>
     </div>
     </div>   
-  <div class="col-sm-8">
 
+  <div class="col-sm-8 p-0">
+    <div class="tab-panel">
+      <tabset class="member-tabset">
+        <tab heading="Overview">
+
+        </tab>
+        <tab heading="Address">
+  
+        </tab>
+        <tab heading="Photo">
+  
+        </tab>
+        <tab heading="Contact">
+  
+        </tab>
+      </tabset>     
+    </div>
   </div>
 </div>
