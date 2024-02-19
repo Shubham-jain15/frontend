@@ -2,7 +2,8 @@
   <div class="col-sm-4 p-0">
     <div class="card">
         <div class="card-img-wrapper">
-          <img class="card-img-top" src="assets/images/house2.webp">
+          <img *ngIf="property.photo" class="card-img-top" src="assets/images/{{property.photo}}">
+          <img *ngIf="!property.photo" class="card-img-top" src="assets/images/house6.avif">
         </div>
         <div class="card-body">
             <h1 class="card-title">
@@ -40,16 +41,75 @@
     <div class="tab-panel">
       <tabset class="member-tabset">
         <tab heading="Overview">
+          <h1>Overview</h1>
+          <div class="row">
+              <div class="col-sm-6">
+                  <div class="heading">
+                      <strong>Project Name</strong>
+                      <p>{{property.name}}</p>
+                  </div>
 
+                  <div class="heading">
+                      <strong>Floor Number</strong>
+                      <p>{{property.floorNo}}</p>
+                  </div>
+                  
+                  <div class="heading">
+                      <strong>Posession</strong>
+                      <p>{{property.estPossessionOn}}</p>
+                  </div>
+              </div>
+
+              <div class="col-sm-6">
+                  <div class="heading">
+                      <strong>Main Entrance</strong>
+                      <p>{{property.mainEntrance}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Gated Community</strong>
+                      <p>{{property.gated}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Security Deposit</strong>
+                      <p>{{property.security}}</p>
+                  </div>
+                  <div class="heading">
+                      <strong>Maintenance</strong>
+                      <p>{{property.maintenance}}</p>
+                  </div>
+              </div>
+              <div class="col-sm-12">
+                  <div class="heading">
+                      <strong>About Property</strong>
+                      <p>{{property.description}}</p>
+                  </div>
+              </div>
+            </div>
         </tab>
         <tab heading="Address">
-  
+          <h1>Address</h1>
+          <div class="heading">
+              <strong>{{property.address}}</strong><br/>
+              <strong>{{property.address2}}</strong><br/>
+              <strong>{{property.city}}</strong>
+          </div>
         </tab>
         <tab heading="Photo">
-  
+          <div class="carousel">
+            <carousel>
+              <slide>
+                <img class="d-block w-100" src="assets/images/{{property.photo}}" alt="Slide">
+              </slide>
+              <slide>
+                <img class="d-block w-100" src="assets/images/house3.avif" alt="Slide">
+              </slide>
+            </carousel>
+          </div>          
         </tab>
         <tab heading="Contact">
-  
+          Only for logged in users
         </tab>
       </tabset>     
     </div>
